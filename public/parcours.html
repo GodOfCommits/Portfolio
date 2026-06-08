@@ -13,111 +13,72 @@
 		<header id="header-placeholder"></header>
 		<main>
 			<section class="card">
-				<h1>Informatique</h1>
+				<h1>Mes études</h1>
 				<div class="card-section">
-					<h2>Homelab</h2>
+					<h2>Études secondaires</h2>
 					<p>
-						J’ai créé, mis en place et j’administre actuellement un
-						<strong>homelab</strong> personnel, basé sur l'hyperviseur <strong>Proxmox</strong>, qui
-						tourne en continu 24h/24 et 7j/7. Il me permet de faire fonctionner mes services
-						principaux, de centraliser toute mon infrastructure, d'expérimenter ainsi que d'acroitre
-						mes compétences dans les domaines de la virtualisation, du self-hosting, du réseau et de
-						la sécurité.
+						J'ai entrepris mes années de collège et lycée à la
+						<strong>Cité scolaire Camille Vernet</strong>. J'ai réalisé un baccalauréat général en
+						suivant les spécialités <strong>Mathématiques</strong> et
+						<strong>Physiques Chimies</strong>.
 					</p>
-
-					<h3>Matériel</h3>
+					<img
+						src="assets/imgs/camille_vernet.jpg"
+						alt="Vue de profile de Camille Vernet"
+						class="picture"
+					/>
+					<img
+						src="assets/imgs/camille_vernet2.png"
+						alt="Autre vue de Camille Vernet"
+						class="picture"
+					/>
+					<h3>Acquisitions</h3>
 					<p>
-						Mon serveur repose sur un mini PC <strong>HP EliteDesk 800 G6 Mini</strong>. Il est doté
-						d’un processeur <strong>Intel Core i5-10500</strong> à 3,10 GHz, de
-						<strong>8 Go de RAM DDR4</strong>, d’un <strong>SSD NVMe de 500 Go</strong> et de deux
-						<strong> disques dur externes de 1 To chacun</strong>, ainsi que d’une carte graphique
-						intégrée <strong>Intel UHD Graphics 630</strong>.
+						En plus d'avoir appris des notions avancées dans les spécialités de Mathématique et
+						Physique Chimie, j'ai également suivi un cursus général incluant l'Anglais, l'Histoire,
+						la Géographie, la Philosophie, les Sciences de la Vie et de la Terre, ...
 					</p>
-
-					<img src="assets/imgs/homelab-front.avif" alt="Vue avant du homelab" class="picture" />
-					<img src="assets/imgs/homelab-back.avif" alt="Vue arrière du homelab" class="picture" />
-
-					<h3>Architecture virtuelle</h3>
+				</div>
+				<div class="card-section">
+					<h2>Études supérieurs</h2>
 					<p>
-						L’infrastructure repose sur plusieurs conteneurs
-						<strong>LXC (Linux containers)</strong> dédiés, chacun ayant une fonction spécifique.
-						Cela me permet de bien séparer les usages, de faciliter la maintenance et les backups,
-						et d’assurer une meilleure sécurité globale.
+						Après l'obtention du baccalauréat, j'ai poursuivis mes études en
+						<strong>BUT Informatique</strong> à <strong>l'IUT de Valence</strong>, et ce pendant 3
+						années.
 					</p>
-
-					<h4>LXC Réseau et sécurité</h4>
+					<img
+						src="assets/imgs/iut_valence.jpg"
+						alt="Vue du dessus l'IUT de Valence"
+						class="picture"
+					/>
+					<h3>Acquisitions</h3>
 					<p>
-						Le premier LXC est spécialement dédié à la gestion du réseau et à la sécurité. Il inclut
-						<strong>Pi-hole</strong> avec <strong>Unbound</strong> pour booster le filtrage DNS,
-						ainsi que <strong>PiVPN</strong> avec <strong>WireGuard</strong>, afin de me permettre
-						d’accéder en toute sécurité à mon <strong>NAS</strong> et à tous mes services
-						auto-hébergés à distance.
-					</p>
-
-					<h4>LXC Docker et services principaux</h4>
-					<p>
-						Mon second conteneur Linux est dédié à faire tourner mes services
-						<strong>Docker</strong>, que je gère facilement avec <strong>Portainer</strong>. Parmi
-						les services que je possède, on retrouve <strong>Vaultwarden</strong>, mon gestionnaire
-						de mot de passe, <strong>Syncthing</strong>, mon drive local accessible via tous mes
-						appareils, <strong>Caddy</strong>, mon reverse proxy et générateur de certificat web,
-						<strong>Homepage</strong>, la page web regroupant tous mes services, ce qui facilite
-						l'accès de ces derniers, <strong>Home Assistant</strong>, le service pour automatiser
-						les <i>smart devices</i> de ma maison, <strong>Jellyfin</strong>, mon serveur
-						multimédia, le Netflix local en outre, le client de mon NAS hébergant tous mes films,
-						musiques, séries, ebooks, et enfin <strong>SearXNG</strong>, mon moteur de recherche
-						privé et optimisé pour <strong>mes</strong> recherches.
-					</p>
-					<p>
-						Pour optimiser tout ça, j’utilise aussi <strong>Sablier</strong>, un outil qui me permet
-						d’allumer ou d'arrêter certains services selon mes besoins, ce qui m’aide à économiser
-						des ressources quand ceux-ci ne sont pas utilisés.
-					</p>
-
-					<h4>LXC Gaming headless</h4>
-					<p>
-						J’ai aussi créé un conteneur Linux spécialement pour le gaming en mode <i>headless</i>
-						(à distance et sans moniteur), prévu pour le streaming local avec
-						<strong>Sunshine</strong> sur le serveur et <strong>Moonlight</strong> comme client. Il
-						utilise la carte graphique pour l’encodage matériel, grâce aux périphériques
-						<strong>/dev/dri/renderD128</strong> et <strong>/dev/dri/card1</strong>, qui sont
-						transmis au LXC.
-					</p>
-					<p>
-						Le système fonctionne avec une configuration <strong>Xorg</strong> utilisant un écran
-						virtuel, démarrée par un service dans <strong>systemctl</strong>. Il permet de simuler
-						un écran à définitions variables pour Sunshine, permettant à ce dernier de diffuser les
-						jeux à distance sur tous types de moniteurs.
-					</p>
-
-					<h3>Automatisation et maintenance</h3>
-					<p>
-						Pour rendre l’administration plus simple, j’ai créé un script principal de mise à jour
-						automatique. Il s’exécute <strong>chaque semaine les lundi à 4h du matin</strong> grâce
-						à <strong>cron</strong> sur l’hôte Proxmox. Ce script s’occupe de mettre à jour le
-						système principal, de démarrer les conteneurs qui sont arrêtés si besoin, d’appliquer
-						les dernières mises à jour du système et des applications auxdits, puis de remettre tout
-						dans son état initial.
-					</p>
-					<p>
-						Il prend également en charge la mise à jour des conteneurs Docker via
-						<strong>Watchtower</strong>, journalise les opérations dans un fichier de log dédié,
-						puis redémarre ou arrête proprement les services selon leur état de départ.
+						J'ai appris divers domaines de l'Informatique, que ce soit du backend avec bases de
+						données, la créations de scripts bash shell, la prise en main de l'environnement Linux
+						et tout ce que cela inclus, au frontend, avec l'apprentissage du HTML, CSS,
+						Java/Typescript, PHP, en passant par le développment mobile Android, Kotlin et Jetpack
+						Compose.
 					</p>
 				</div>
 			</section>
 
-			<!-- <section class="card">
-				<h1>Divers</h1>
+			<section class="card">
+				<h1>Mes expériences professionnelles</h1>
 				<div class="card-section">
-					<h2></h2>
-					<p></p>
+					<h2>DPIA COLAERT</h2>
+					<p>
+						Durant ma formation de BUT Informatique, j'ai réalisé un state et une alternance en
+						seconde et dernière année
+					</p>
+					<img
+						src="assets/imgs/dpia_logo.jpeg"
+						alt="Vue de profile de Camille Vernet"
+						class="picture"
+					/>
+					<h3>Acquisitions</h3>
+					<p>XXX</p>
 				</div>
-				<div class="card-section">
-					<h2></h2>
-					<p></p>
-				</div>
-			</section> -->
+			</section>
 		</main>
 		<footer id="footer-placeholder"></footer>
 	</body>
