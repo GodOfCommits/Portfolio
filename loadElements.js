@@ -1,45 +1,34 @@
 // loadElements.ts
-
 // -----------------------------------------
 // ----------------------------------------- IMPORTS
 // -----------------------------------------
-
 // -----------------------------------------
 // ----------------------------------------- CONSTANTS & VARIABLES
 // -----------------------------------------
-
-const header = document.getElementById("header-placeholder")!;
-const footer = document.getElementById("footer-placeholder")!;
-
+var header = document.getElementById("header-placeholder");
+var footer = document.getElementById("footer-placeholder");
 // -----------------------------------------
 // ----------------------------------------- FUNCTIONS
 // -----------------------------------------
-
 function init() {
-	loadHeader();
-	loadFooter();
+    loadHeader();
+    loadFooter();
 }
-
 function loadHeader() {
-	fetch("models/header.html")
-		.then((response) => response.text())
-		.then((data) => {
-			header.innerHTML = data;
-		})
-		.catch((error) => console.error("Error loading the header:", error));
+    fetch("models/header.html")
+        .then(function (response) { return response.text(); })
+        .then(function (data) {
+        header.innerHTML = data;
+    })["catch"](function (error) { return console.error("Error loading the header:", error); });
 }
-
 function loadFooter() {
-	fetch("models/footer.html")
-		.then((response) => response.text())
-		.then((data) => {
-			footer.innerHTML = data;
-		})
-		.catch((error) => console.error("Error loading the footer:", error));
+    fetch("models/footer.html")
+        .then(function (response) { return response.text(); })
+        .then(function (data) {
+        footer.innerHTML = data;
+    })["catch"](function (error) { return console.error("Error loading the footer:", error); });
 }
-
 // -----------------------------------------
 // ----------------------------------------- SCRIPT
 // -----------------------------------------
-
 init();
